@@ -8,10 +8,16 @@ services:
       POSTGRES_PASSWORD: password
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    command: >
+      sh -c "rm -f tmp/pids/server.pid &&
+      bundle install &&
+      echo &&
+      while ! ps -ef | grep -v grep | grep puma ; do echo You may now log into machine for starting web server: bundle exec rails s -p 3001 -b '0.0.0.0'; sleep 10; done &&
+      tail -f /opt/vanadium-web/log/development.log &&
+      bundle exec rails s -p 3001 -b '0.0.0.0'"
     volumes:
       - .:/geodiscuss
     ports:
-      - "3000:3000"
+      - "3001:3001"
     depends_on:
       - db
