@@ -12,8 +12,9 @@ services:
       sh -c "rm -f tmp/pids/server.pid &&
       bundle install &&
       echo &&
+      touch log/development.log &&
       while ! ps -ef | grep -v grep | grep puma ; do echo You may now log into machine for starting web server: bundle exec rails s -p 3001 -b '0.0.0.0'; sleep 10; done &&
-      tail -f /opt/vanadium-web/log/development.log &&
+      tail -f log/development.log &&
       bundle exec rails s -p 3001 -b '0.0.0.0'"
     volumes:
       - .:/geodiscuss

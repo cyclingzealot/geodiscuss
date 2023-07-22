@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Point of interests</h1>
+
+<div id="point_of_interests">
+  <% @point_of_interests.each do |point_of_interest| %>
+    <%= render point_of_interest %>
+    <p>
+      <%= link_to "Show this point of interest", point_of_interest %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New point of interest", new_point_of_interest_path %>
