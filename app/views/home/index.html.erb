@@ -1,9 +1,17 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+
+<div class='container'>
+  <div class='row'>
+    <div class='col-10'>
+      <h1>Home#index</h1>
+    </div>
+    <div class='col-2'>
+      New idea
+    </div>
+  </div>
+</div>
 
 <div id="map" style="height:600px"></div>
 
-65.0082092338818, 25.470817925302573
 <script>
      // Initialize the map
      <% map_lat = Group.first&.lat || 65.00821 %>
