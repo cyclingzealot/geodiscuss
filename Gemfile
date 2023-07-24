@@ -78,3 +78,5 @@ gem 'devise' # For user authentication
 gem 'simple_form' # For easy form generation
 gem 'will_paginate' # For pagination
 gem 'bootstrap-will_paginate' # For styling pagination links
+
+gem 'bootstrap', '~> 5.1.3'
