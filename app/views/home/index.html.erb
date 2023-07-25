@@ -5,7 +5,7 @@
       <h1>Home#index</h1>
     </div>
     <div class='col-2'>
-      New idea
+      <%= link_to 'New idea', new_point_of_interest_path %>
     </div>
   </div>
 </div>
@@ -13,16 +13,7 @@
 <div id="map" style="height:600px"></div>
 
 <script>
-     // Initialize the map
-     <% map_lat = Group.first&.lat || 65.00821 %>
-     <% map_lng = Group.first&.lng || 25.47082 %>
-     var map = L.map('map').setView([<%= "#{map_lat}, #{map_lng}" %>], 13);
-
-     // Add a tile layer to the map
-     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-       attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
-     }).addTo(map);
-
+     <%= render partial: 'shared/map' %>
      // Add markers to the map for each infrastructure idea
      <% @pois.each do |poi| %>
        L.marker([<%= poi.latitude %>, <%= poi.longitude %>]).addTo(map);

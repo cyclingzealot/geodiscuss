@@ -1,0 +1,10 @@
+     // Initialize the map
+     <% map_lat = Group.first&.lat || 65.00821 %>
+     <% map_lng = Group.first&.lng || 25.47082 %>
+     var map = L.map('map').setView([<%= "#{map_lat}, #{map_lng}" %>], 13);
+
+     // Add a tile layer to the map
+     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+       attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+     }).addTo(map);
+
