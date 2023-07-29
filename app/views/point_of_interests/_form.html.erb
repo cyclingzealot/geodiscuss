@@ -31,7 +31,23 @@
     <%= form.text_field :longitude %>
   </div>
 
+  <div id="map" style="height:200px; width:200px"></div>
+
   <script>
+     <%= render partial: 'shared/map' %>
+
+	     var marker = L.marker();
+
+         function onMapClick(e) {
+            marker
+                .setLatLng(e.latlng)
+                .addTo(map);
+			document.getElementById('point_of_interest_latitude').value = e.latlng.lat;
+			document.getElementById('point_of_interest_longitude').value = e.latlng.lng;
+         }
+
+         map.on('click', onMapClick);
+
   </script>
 
   <div>
