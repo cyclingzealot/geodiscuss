@@ -71,10 +71,23 @@ group :test do
   gem "webdrivers"
 end
 
+# GIS map stuf
 gem 'leaflet-rails'
 gem 'geocoder'
+
+# Commenting and voting
 gem 'acts_as_votable'
+gem 'commontator', git: 'https://github.com/cyclingzealot/commontator.git', branch: 'ruby322'
+
+# Required for commontator
+# I should probably use pin / import-mapper
+gem 'jquery-rails'
+gem 'sassc-rails'
+
+# User stuff
 gem 'devise' # For user authentication
+
+# CSS front end stuff
 gem 'simple_form' # For easy form generation
 gem 'will_paginate' # For pagination
 gem 'bootstrap-will_paginate' # For styling pagination links
