@@ -8,9 +8,18 @@
       <%= link_to 'New idea', new_point_of_interest_path %>
     </div>
   </div>
-</div>
 
-<div id="map" style="height:600px"></div>
+
+  <div class="row">
+    <div class="col-6">
+      <div id="map" style="height:600px;"></div>
+    </div>
+
+    <div class="col-6">
+    This is a seperate commment
+    </div>
+  </div>
+</div>
 
 <script>
      <%= render partial: 'shared/map' %>
