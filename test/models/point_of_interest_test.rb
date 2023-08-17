@@ -7,6 +7,6 @@ class PointOfInterestTest < ActiveSupport::TestCase
   end
 
   test 'it has comments' do
-    assert @poi.comments.size >= 1
+    assert @poi.commontator_thread.comments.size.positive?
   end
 end
