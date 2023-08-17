@@ -17,7 +17,8 @@ class GroupsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create group" do
     assert_difference("Group.count") do
-      post groups_url, params: { group: { Name: @group.Name, center_lat: @group.center_lat, center_lng: @group.center_lng } }
+      debugger
+      post groups_url, params: { group: { name: @group.name, lat: @group.lat, lng: @group.lng } }
     end
 
     assert_redirected_to group_url(Group.last)
@@ -34,7 +35,7 @@ class GroupsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update group" do
-    patch group_url(@group), params: { group: { Name: @group.Name, center_lat: @group.center_lat, center_lng: @group.center_lng } }
+    patch group_url(@group), params: { group: { name: @group.name, lat: @group.lat, lng: @group.lng } }
     assert_redirected_to group_url(@group)
   end
 
