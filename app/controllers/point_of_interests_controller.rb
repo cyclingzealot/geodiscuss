@@ -1,5 +1,5 @@
 class PointOfInterestsController < ApplicationController
-  before_action :set_point_of_interest, only: %i[ show edit update destroy ]
+  before_action :set_point_of_interest, only: %i[ show edit update destroy comments]
 
   # GET /point_of_interests or /point_of_interests.json
   def index
@@ -8,6 +8,11 @@ class PointOfInterestsController < ApplicationController
 
   # GET /point_of_interests/1 or /point_of_interests/1.json
   def show
+  end
+
+  def comments
+    @comments = @poi.commontator_thread.comments
+    render partial: 'comments', locals: { poi: @poi }
   end
 
   # GET /point_of_interests/new
@@ -61,6 +66,7 @@ class PointOfInterestsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_point_of_interest
       @point_of_interest = PointOfInterest.find(params[:id])
+      @poi = @point_of_interest
     end
 
     # Only allow a list of trusted parameters through.

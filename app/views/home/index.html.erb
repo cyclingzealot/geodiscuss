@@ -15,8 +15,7 @@
       <div id="map" style="height:600px;"></div>
     </div>
 
-    <div class="col-6">
-    This is a seperate commment
+    <div class="col-6" id="comments-section">
     </div>
   </div>
 </div>
@@ -25,6 +24,20 @@
      <%= render partial: 'shared/map' %>
      // Add markers to the map for each infrastructure idea
      <% @pois.each do |poi| %>
-       L.marker([<%= poi.latitude %>, <%= poi.longitude %>]).addTo(map);
-     <% end %>
+       var marker = L.marker([<%= poi.latitude %>, <%= poi.longitude %>]).addTo(map);
+
+       marker.id = <%= poi.id %>
+
+       $.ajax({
+         url: '<%= comments_point_of_interest_path(poi) %>',
+         type: 'GET',
+         success: function(data) {
+           $('#comments-section').html(data);
+         },
+        error: function(xhr, status, error) {
+          console.log(error);
+        }
+      });
+
+    <% end %>
 </script>

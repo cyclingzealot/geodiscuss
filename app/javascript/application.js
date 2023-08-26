@@ -2,6 +2,8 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import 'bootstrap'
+import 'jquery'
+import 'jquery_ujs'
 
 //= require leaflet
 //import Leaflet from 'leaflet'

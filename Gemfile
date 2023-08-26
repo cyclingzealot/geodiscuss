@@ -84,6 +84,10 @@ gem 'commontator', git: 'https://github.com/cyclingzealot/commontator.git', bran
 gem 'jquery-rails'
 gem 'sassc-rails'
 
+# Other jquery
+gem 'jquery-ui-rails'
+
+
 # User stuff
 gem 'devise' # For user authentication
 
